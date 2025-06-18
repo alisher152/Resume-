@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+body {
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "font-Custom";
+  src: url("src\assets\font\MontserratAlternates-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "font-Custom2";
+  src: url("src\assets\font\Neonderthaw-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "font-Custom3";
+  src: url("src\assets\font\Parisienne.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
