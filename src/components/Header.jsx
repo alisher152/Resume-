@@ -387,14 +387,21 @@ const Header = () => {
               }}
             >
               <div className="flex items-center mb-4">
+                <motion.img
+                  src="src/assets/Ellipse 18.svg"
+                  whileHover={{
+                    rotate: isMobile ? 0 : 180,
+                    transition: { duration: 0.5 },
+                  }}
+                />
                 <motion.div
-                  className="text-3xl font-bold mr-3"
+                  className="font-bold -ml-6"
                   whileHover={{ scale: 1.1 }}
                 >
                   4.
                 </motion.div>
                 <motion.h2
-                  className="text-xl font-bold"
+                  className="text-xl font-bold ml-5"
                   whileHover={{ scale: 1.02 }}
                 >
                   Анализ
