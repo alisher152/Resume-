@@ -1,6 +1,14 @@
 import React from "react";
 
 const Description = () => {
+  // Функция для плавной прокрутки
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div id="work" className="flex flex-col">
       {/* Первая часть с описанием процесса */}
@@ -64,11 +72,7 @@ const Description = () => {
       {/* Кнопка "Работы" */}
       <div className="mt-40 flex justify-center">
         <button
-          onClick={() =>
-            document
-              .getElementById("jobs")
-              .scrollIntoView({ behavior: "smooth" })
-          }
+          onClick={() => scrollToSection("jobs-gallery")}
           className="px-8 bg-transparent border-2 border-black rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 w-[300px] transform hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600 group"
         >
           <span className="flex-1 text-center transition-colors duration-300">
@@ -104,7 +108,7 @@ const Description = () => {
       <div id="jobs" className="mt-16">
         <div className="bg-[#5F6BD4] rounded-4xl flex justify-center items-center h-80 w-full transition-all duration-500 hover:bg-[#4a56b9] hover:shadow-2xl">
           <button
-            id="raundlab"
+            onClick={() => scrollToSection("raundlab-section")}
             className="mx-4 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-2xl active:scale-95 group"
           >
             <img
@@ -114,7 +118,7 @@ const Description = () => {
             />
           </button>
           <button
-            id="berrytea"
+            onClick={() => scrollToSection("berrytea-section")}
             className="mx-4 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-2xl active:scale-95 group"
           >
             <img
@@ -124,7 +128,7 @@ const Description = () => {
             />
           </button>
           <button
-            id="zan stamps"
+            onClick={() => scrollToSection("zan-stamps-section")}
             className="mx-4 transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-2xl active:scale-95 group"
           >
             <img
@@ -136,42 +140,103 @@ const Description = () => {
         </div>
       </div>
 
-      {/* Три контейнера с работами */}
-      <div className="flex flex-col items-center gap-8 py-12 px-4 w-full mt-20">
-        {/* Первая строка - два контейнера в ряд */}
-        <div className="flex flex-wrap justify-center gap-8 w-full max-w-4xl">
-          {/* Первый контейнер */}
-          <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-20 group overflow-hidden">
-            <div className="flex justify-center">
-              <img
-                src="src\assets\2.svg"
-                alt="Проект 1"
-                className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
-              />
+      {/* Секция Zan Stamps */}
+      <div id="zan-stamps-section" className="py-20">
+        {/* Здесь можно добавить контент для Zan Stamps */}
+        <div className="flex flex-col items-center gap-8 py-12 px-4 w-full mt-20">
+          {/* Первая строка - два контейнера в ряд */}
+          <div className="flex flex-wrap justify-center gap-8 w-full max-w-4xl">
+            {/* Первый контейнер */}
+            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-20 group overflow-hidden">
+              <div className="flex justify-center">
+                <img
+                  src="src\assets\2.svg"
+                  alt="Проект 1"
+                  className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+
+            {/* Второй контейнер */}
+            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+              <div className="flex justify-center">
+                <img
+                  src="src\assets\2.svg"
+                  alt="Проект 2"
+                  className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Второй контейнер */}
-          <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-            <div className="flex justify-center">
-              <img
-                src="src\assets\2.svg"
-                alt="Проект 2"
-                className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
-              />
+          {/* Вторая строка - один центральный контейнер */}
+          <div className="flex justify-center w-full">
+            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-15 group overflow-hidden">
+              <div className="flex flex-col items-center">
+                <div>
+                  <img
+                    src="src\assets\2.svg"
+                    alt="Проект 3"
+                    className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Вторая строка - один центральный контейнер */}
-        <div className="flex justify-center w-full">
-          <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-15 group overflow-hidden">
-            <div className="flex flex-col items-center">
-              <div>
+      {/* Секция Raundlab */}
+      <div id="raundlab-section" className="py-20">
+        {/* Кнопка RAUND LAB */}
+        <button
+          onClick={() => scrollToSection("raundlab-section")}
+          className="px-8 bg-transparent border-2 border-black rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 w-[300px] ml-160 mt-40 transform hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600 group"
+        >
+          <span className="flex-1 text-center transition-colors duration-300">
+            RAUND LAB
+          </span>
+          <div className="flex items-center">
+            <img
+              src="src\assets\Group 3.svg"
+              className="ml-8 -mr-8 w-16 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
+              alt="Иконка"
+            />
+          </div>
+        </button>
+
+        {/* Галерея RAUND LAB */}
+        <div>
+          <div className="flex flex-col items-center gap-8 py-12 px-4 w-full">
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src\assets\2.svg"
-                  alt="Проект 3"
-                  className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
+                  src="src\assets\1.svg"
+                  alt="Raundlab 1"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\3.svg"
+                  alt="Raundlab 2"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\8.svg"
+                  alt="Raundlab 3"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\3.svg"
+                  alt="Raundlab 4"
+                  className="transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </div>
@@ -179,149 +244,75 @@ const Description = () => {
         </div>
       </div>
 
-      {/* Кнопка RAUND LAB */}
-      <button
-        onClick={() =>
-          document.getElementById("jobs").scrollIntoView({ behavior: "smooth" })
-        }
-        className="px-8 bg-transparent border-2 border-black rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 w-[300px] ml-160 mt-40 transform hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600 group"
-      >
-        <span className="flex-1 text-center transition-colors duration-300">
-          RAUND LAB
-        </span>
-        <div className="flex items-center">
-          <img
-            src="src\assets\Group 3.svg"
-            className="ml-8 -mr-8 w-16 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
-            alt="Иконка"
-          />
-        </div>
-      </button>
-
-      {/* Галерея RAUND LAB */}
-      <div>
-        <div className="flex flex-col items-center gap-8 py-12 px-4 w-full">
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
-            {/* Первый контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\1.svg"
-                alt="Raundlab 1"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Второй контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\3.svg"
-                alt="Raundlab 2"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
+      {/* Секция Berry Tea */}
+      <div id="berrytea-section" className="py-20">
+        {/* Кнопка BERRY TEA */}
+        <button
+          onClick={() => scrollToSection("berrytea-section")}
+          className="px-8 bg-transparent border-2 border-black rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 w-[300px] ml-160 mt-40 transform hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600 group"
+        >
+          <span className="flex-1 text-center transition-colors duration-300">
+            BERRY TEA
+          </span>
+          <div className="flex items-center">
+            <img
+              src="src\assets\Group 3.svg"
+              className="ml-8 -mr-8 w-16 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
+              alt="Иконка"
+            />
           </div>
+        </button>
 
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
-            {/* Третий контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\8.svg"
-                alt="Raundlab 3"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
+        {/* Галерея BERRY TEA */}
+        <div>
+          <div className="flex flex-col items-center gap-8 py-12 px-4 w-full">
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\Group 21.svg"
+                  alt="Berry Tea 1"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\4.svg"
+                  alt="Berry Tea 2"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
             </div>
-
-            {/* Четвертый контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\3.svg"
-                alt="Raundlab 4"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\7.svg"
+                  alt="Berry Tea 3"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\6.svg"
+                  alt="Berry Tea 4"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Кнопка BERRY TEA */}
-      <button
-        onClick={() =>
-          document.getElementById("jobs").scrollIntoView({ behavior: "smooth" })
-        }
-        className="px-8 bg-transparent border-2 border-black rounded-full text-xl font-bold hover:bg-gray-100 transition-all duration-300 flex items-center justify-between shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 w-[300px] ml-160 mt-40 transform hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600 group"
-      >
-        <span className="flex-1 text-center transition-colors duration-300">
-          BERRY TEA
-        </span>
-        <div className="flex items-center">
-          <img
-            src="src\assets\Group 3.svg"
-            className="ml-8 -mr-8 w-16 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110"
-            alt="Иконка"
-          />
-        </div>
-      </button>
-
-      {/* Галерея BERRY TEA */}
-      <div>
-        <div className="flex flex-col items-center gap-8 py-12 px-4 w-full">
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
-            {/* Первый контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\Group 21.svg"
-                alt="Berry Tea 1"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Второй контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\4.svg"
-                alt="Berry Tea 2"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
-            {/* Третий контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\7.svg"
-                alt="Berry Tea 3"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Четвертый контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\6.svg"
-                alt="Berry Tea 4"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
-            {/* Пятый контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\5.svg"
-                alt="Berry Tea 5"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Шестой контейнер */}
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
-              <img
-                src="src\assets\9.svg"
-                alt="Berry Tea 6"
-                className="transition-transform duration-500 group-hover:scale-105"
-              />
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl">
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\5.svg"
+                  alt="Berry Tea 5"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+              <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+                <img
+                  src="src\assets\9.svg"
+                  alt="Berry Tea 6"
+                  className="transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
             </div>
           </div>
         </div>
