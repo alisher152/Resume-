@@ -2,7 +2,7 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 
 const Description = () => {
-  const isMobile = useMediaQuery({ maxWidth: 430 }); // iPhone 14 Pro Max width
+  const isMobile = useMediaQuery({ maxWidth: 430 });
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -17,7 +17,7 @@ const Description = () => {
       <div className={`relative ${isMobile ? "px-4" : ""}`}>
         {!isMobile && (
           <img
-            src="src/assets/Group 8.svg"
+            src="/assets/Group 8.svg"
             className="ml-60 transition-all duration-500 hover:scale-110 hover:rotate-6"
             alt="Процесс работы"
           />
@@ -144,7 +144,7 @@ const Description = () => {
               />
             </svg>
             <img
-              src="src/assets/Group 3.svg"
+              src="/assets/Group 3.svg"
               className={`ml-2 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
                 isMobile ? "-mr-4 w-12" : "-mr-8 w-16"
               }`}
@@ -168,7 +168,7 @@ const Description = () => {
             } group`}
           >
             <img
-              src="src/assets/1.svg"
+              src="/assets/1.svg"
               alt="Raundlab"
               className={`transform transition duration-500 group-hover:rotate-3 group-hover:brightness-110 ${
                 isMobile ? "w-full h-auto" : ""
@@ -182,7 +182,7 @@ const Description = () => {
             } group`}
           >
             <img
-              src="src/assets/Group 21.svg"
+              src="/assets/Group 21.svg"
               alt="Berry Tea"
               className={`transform transition duration-500 group-hover:rotate-3 group-hover:brightness-110 ${
                 isMobile ? "w-full h-auto" : ""
@@ -196,7 +196,7 @@ const Description = () => {
             } group`}
           >
             <img
-              src="src/assets/Розахунов Анаят фкс 2 курс  1.svg"
+              src="/assets/Project 3.svg"
               alt="Zan Stamps"
               className={`transform transition duration-500 group-hover:rotate-3 group-hover:brightness-110 ${
                 isMobile ? "w-full h-auto" : ""
@@ -206,14 +206,14 @@ const Description = () => {
         </div>
       </div>
 
-      {/* Секция Zan Stamps (без изменений) */}
+      {/* Секция Zan Stamps */}
       <div id="zan-stamps-section" className="py-20">
         <div className="flex flex-col items-center gap-8 py-12 px-4 w-full mt-20">
           <div className="flex flex-wrap justify-center gap-8 w-full max-w-4xl">
             <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-20 group overflow-hidden">
               <div className="flex justify-center">
                 <img
-                  src="src/assets/2.svg"
+                  src="/assets/2.svg"
                   alt="Проект 1"
                   className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                 />
@@ -223,7 +223,7 @@ const Description = () => {
             <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
               <div className="flex justify-center">
                 <img
-                  src="src/assets/2.svg"
+                  src="/assets/2.svg"
                   alt="Проект 2"
                   className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                 />
@@ -235,7 +235,7 @@ const Description = () => {
             <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-15 group overflow-hidden">
               <div className="flex flex-col items-center">
                 <img
-                  src="src/assets/2.svg"
+                  src="/assets/2.svg"
                   alt="Проект 3"
                   className="w-124 h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                 />
@@ -263,7 +263,7 @@ const Description = () => {
           <span className="flex-1 text-center">RAUND LAB</span>
           <div className="flex items-center">
             <img
-              src="src/assets/Group 3.svg"
+              src="/assets/Group 3.svg"
               className={`ml-2 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
                 isMobile ? "-mr-4 w-12" : "-mr-8 w-16"
               }`}
@@ -285,14 +285,14 @@ const Description = () => {
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/1.svg"
+                  src="/assets/1.svg"
                   alt="Raundlab 1"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/3.svg"
+                  src="/assets/3.svg"
                   alt="Raundlab 2"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
@@ -305,14 +305,14 @@ const Description = () => {
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/8.svg"
+                  src="/assets/8.svg"
                   alt="Raundlab 3"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/3.svg"
+                  src="/assets/3.svg"
                   alt="Raundlab 4"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
@@ -340,7 +340,7 @@ const Description = () => {
           <span className="flex-1 text-center">BERRY TEA</span>
           <div className="flex items-center">
             <img
-              src="src/assets/Group 3.svg"
+              src="/assets/Group 3.svg"
               className={`ml-2 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
                 isMobile ? "-mr-4 w-12" : "-mr-8 w-16"
               }`}
@@ -362,14 +362,14 @@ const Description = () => {
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/Group 21.svg"
+                  src="/assets/Group 21.svg"
                   alt="Berry Tea 1"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/4.svg"
+                  src="/assets/4.svg"
                   alt="Berry Tea 2"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
@@ -382,14 +382,14 @@ const Description = () => {
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/7.svg"
+                  src="/assets/7.svg"
                   alt="Berry Tea 3"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/6.svg"
+                  src="/assets/6.svg"
                   alt="Berry Tea 4"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
@@ -402,14 +402,14 @@ const Description = () => {
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/5.svg"
+                  src="/assets/5.svg"
                   alt="Berry Tea 5"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
                 <img
-                  src="src/assets/9.svg"
+                  src="/assets/9.svg"
                   alt="Berry Tea 6"
                   className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 />

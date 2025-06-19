@@ -7,7 +7,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 430); // iPhone 14 Pro Max width
+      setIsMobile(window.innerWidth <= 430);
     };
 
     checkIfMobile();
@@ -52,7 +52,7 @@ const Navbar = () => {
         } font-Custom`}
       >
         <motion.img
-          src="src/assets/Group 3.svg"
+          src="/assets/Group 3.svg"
           alt="Logo"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -60,7 +60,6 @@ const Navbar = () => {
         />
 
         {isMobile ? (
-          // Mobile version - horizontal layout with smaller text
           <div className="flex items-center gap-4">
             {navItems.map((item, index) => (
               <motion.button
@@ -73,13 +72,11 @@ const Navbar = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                {item.text.split(" ")[0]}{" "}
-                {/* Show only first word for mobile */}
+                {item.text.split(" ")[0]}
               </motion.button>
             ))}
           </div>
         ) : (
-          // Desktop version (LG) - original layout
           navItems.map((item, index) => (
             <motion.button
               key={item.id}

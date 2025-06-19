@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 
 const Header = () => {
-  const isMobile = useMediaQuery({ maxWidth: 430 }); // iPhone 14 Pro Max width
+  const isMobile = useMediaQuery({ maxWidth: 430 });
 
   const skills = [
     { icon: <FaPenFancy />, name: "Illustrator" },
@@ -75,7 +75,7 @@ const Header = () => {
             whileHover={{ scale: isMobile ? 1 : 1.05 }}
           >
             <img
-              src="src/assets/Group 16.svg"
+              src="/assets/Group 16.svg"
               alt="Profile"
               className={`mx-auto ${isMobile ? "" : "mr-290"}`}
             />
@@ -230,7 +230,7 @@ const Header = () => {
       <div className={`text-center ${isMobile ? "mt-40" : "mt-60"} relative`}>
         {!isMobile && (
           <img
-            src="src/assets/Group 10.svg"
+            src="/assets/Group 10.svg"
             className="mx-auto"
             alt="Decoration"
           />
@@ -268,7 +268,7 @@ const Header = () => {
           >
             <div className="flex items-center mb-4">
               <motion.img
-                src="src/assets/Ellipse 18.svg"
+                src="/assets/Ellipse 18.svg"
                 whileHover={{
                   rotate: isMobile ? 0 : 360,
                   transition: { duration: 0.8 },
@@ -311,7 +311,7 @@ const Header = () => {
           >
             <div className="flex items-center mb-4">
               <motion.img
-                src="src/assets/Ellipse 18.svg"
+                src="/assets/Ellipse 18.svg"
                 whileHover={{ scale: isMobile ? 1 : 1.2 }}
               />
               <div className="font-bold -ml-6">2.</div>
@@ -348,7 +348,7 @@ const Header = () => {
           >
             <div className="flex items-center mb-4">
               <motion.img
-                src="src/assets/Ellipse 18.svg"
+                src="/assets/Ellipse 18.svg"
                 whileHover={{
                   rotate: isMobile ? 0 : 180,
                   transition: { duration: 0.5 },
@@ -388,7 +388,7 @@ const Header = () => {
             >
               <div className="flex items-center mb-4">
                 <motion.img
-                  src="src/assets/Ellipse 18.svg"
+                  src="/assets/Ellipse 18.svg"
                   whileHover={{
                     rotate: isMobile ? 0 : 180,
                     transition: { duration: 0.5 },

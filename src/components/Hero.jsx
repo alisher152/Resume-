@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import { useMediaQuery } from "react-responsive";
 
 const Hero = () => {
-  const isMobile = useMediaQuery({ maxWidth: 430 }); // iPhone 14 Pro Max width
+  const isMobile = useMediaQuery({ maxWidth: 430 });
 
   return (
-    <div className={`flex flex-col ${isMobile ? "pt-32" : "pt-60"}`}>
+    <div className={`flex flex-col ${isMobile ? "pt-32" : "pt-60"}`} id="home">
       <motion.div
         className={`text-black font-bold relative z-10 ${
           isMobile ? "text-4xl" : "text-8xl"
@@ -92,7 +92,7 @@ const Hero = () => {
           transition={{ delay: isMobile ? 0.4 : 0.8 }}
         >
           <img
-            src="src/assets/я фон 1.svg"
+            src="/assets/BG.svg"
             className={`${
               isMobile ? "h-[250px] mt-4" : "h-[500px] mr-60 -mt-20"
             }`}

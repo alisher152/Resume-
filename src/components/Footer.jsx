@@ -2,7 +2,7 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 
 const Footer = () => {
-  const isMobile = useMediaQuery({ maxWidth: 430 }); // iPhone 14 Pro Max width
+  const isMobile = useMediaQuery({ maxWidth: 430 });
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -34,9 +34,11 @@ const Footer = () => {
               }`}
             >
               <img
-                src="src/assets/pngegg - 2025-02-28T003142.742.svg"
+                src="/assets/pngegg - 2025-02-28T003142.742.svg"
                 alt="Contact icon"
-                className={`${isMobile ? "w-10 h-10" : "w-12 h-12"} mr-4`}
+                className={`${
+                  isMobile ? "w-10 h-10" : "w-12 h-12"
+                } mr-4 transition-transform duration-300 hover:scale-110 hover:rotate-6`}
               />
               <div className="text-left">
                 <p className={`font-medium ${isMobile ? "text-sm" : ""}`}>
@@ -55,9 +57,11 @@ const Footer = () => {
               }`}
             >
               <img
-                src="src/assets/pngegg - 2025-02-28T004213.015.svg"
+                src="/assets/pngegg - 2025-02-28T004213.015.svg"
                 alt="Telegram"
-                className={`${isMobile ? "w-10 h-10" : "w-12 h-12"} mr-4`}
+                className={`${
+                  isMobile ? "w-10 h-10" : "w-12 h-12"
+                } mr-4 transition-transform duration-300 hover:scale-110 hover:rotate-6`}
               />
               <a
                 href="https://t.me/nursultanovna1"
@@ -65,7 +69,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className={`text-blue-600 hover:text-blue-800 font-medium ${
                   isMobile ? "text-sm" : ""
-                }`}
+                } transition-colors duration-300 active:scale-95 active:translate-y-0.5`}
               >
                 @nursultanovna1
               </a>
@@ -78,9 +82,11 @@ const Footer = () => {
               }`}
             >
               <img
-                src="src/assets/pngegg - 2025-02-28T003135.783.svg"
+                src="/assets/pngegg - 2025-02-28T003135.783.svg"
                 alt="Instagram"
-                className={`${isMobile ? "w-10 h-10" : "w-12 h-12"} mr-4`}
+                className={`${
+                  isMobile ? "w-10 h-10" : "w-12 h-12"
+                } mr-4 transition-transform duration-300 hover:scale-110 hover:rotate-6`}
               />
               <a
                 href="https://instagram.com/iffimova"
@@ -88,7 +94,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className={`text-pink-600 hover:text-pink-800 font-medium ${
                   isMobile ? "text-sm" : ""
-                }`}
+                } transition-colors duration-300 active:scale-95 active:translate-y-0.5`}
               >
                 @iffimova
               </a>
@@ -105,34 +111,27 @@ const Footer = () => {
             : "justify-center -mt-50"
         }`}
       >
-        {isMobile ? (
-          <>
-            <img
-              src="src/assets/Изображение WhatsApp 2025-03-04 в 03.32.17_916ecb7f.svg"
-              alt="QR 1"
-              className="w-40"
-            />
-            <img src="src/assets/Group 4.svg" alt="QR 2" className="w-40" />
-            <img
-              src="src/assets/Изображение WhatsApp 2025-03-04 в 03.32.18_cf71684a.svg"
-              alt="QR 3"
-              className="w-40"
-            />
-          </>
-        ) : (
-          <>
-            <img
-              src="src/assets/Изображение WhatsApp 2025-03-04 в 03.32.17_916ecb7f.svg"
-              alt="QR 1"
-            />
-            <img src="src/assets/Group 4.svg" className="ml-20" alt="QR 2" />
-            <img
-              src="src/assets/Изображение WhatsApp 2025-03-04 в 03.32.18_cf71684a.svg"
-              className="ml-20"
-              alt="QR 3"
-            />
-          </>
-        )}
+        <img
+          src="/assets/What's App.svg"
+          alt="QR 1"
+          className={`${
+            isMobile ? "w-40" : ""
+          } transition-transform duration-300 hover:scale-105 hover:shadow-lg`}
+        />
+        <img
+          src="/assets/Group 4.svg"
+          alt="QR 2"
+          className={`${
+            isMobile ? "w-40" : "ml-20"
+          } transition-transform duration-300 hover:scale-105 hover:shadow-lg`}
+        />
+        <img
+          src="/assets/Instagram.svg"
+          alt="QR 3"
+          className={`${
+            isMobile ? "w-40" : "ml-20"
+          } transition-transform duration-300 hover:scale-105 hover:shadow-lg`}
+        />
       </div>
 
       {/* Навигационные кнопки */}
@@ -145,19 +144,20 @@ const Footer = () => {
           onClick={() => scrollToSection("jobs")}
           className={`${
             isMobile ? "w-full" : "px-6"
-          } py-2 bg-white text-[#2B3590] rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-md hover:shadow-lg ${
+          } py-2 bg-white text-[#2B3590] rounded-full font-bold hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-lg ${
             isMobile ? "text-sm" : ""
-          }`}
+          } active:scale-95 active:translate-y-0.5 active:shadow-sm`}
         >
           Jobs
         </button>
         <button
           onClick={() => scrollToSection("home")}
+          id="home"
           className={`${
             isMobile ? "w-full" : "px-6"
-          } py-2 bg-white text-[#2B3590] rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-md hover:shadow-lg ${
+          } py-2 bg-white text-[#2B3590] rounded-full font-bold hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-lg ${
             isMobile ? "text-sm" : ""
-          }`}
+          } active:scale-95 active:translate-y-0.5 active:shadow-sm`}
         >
           Home
         </button>
@@ -165,9 +165,9 @@ const Footer = () => {
           onClick={() => scrollToSection("about")}
           className={`${
             isMobile ? "w-full" : "px-6"
-          } py-2 bg-white text-[#2B3590] rounded-full font-bold hover:bg-gray-100 transition-colors duration-300 shadow-md hover:shadow-lg ${
+          } py-2 bg-white text-[#2B3590] rounded-full font-bold hover:bg-gray-100 transition-all duration-300 shadow-md hover:shadow-lg ${
             isMobile ? "text-sm" : ""
-          }`}
+          } active:scale-95 active:translate-y-0.5 active:shadow-sm`}
         >
           About Me
         </button>
