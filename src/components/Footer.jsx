@@ -171,6 +171,19 @@ const Footer = () => {
         >
           About Me
         </button>
+        <div className="text-center text-black">
+          <h1 className="font-bold">Made a Website:</h1>
+          <a
+            href="https://instagram.com/iffimova"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`text-pink-600 hover:text-pink-800 font-medium ${
+              isMobile ? "text-sm" : ""
+            } transition-colors duration-300 active:scale-95 active:translate-y-0.5`}
+          >
+            @alisher_extremum
+          </a>
+        </div>
       </div>
     </div>
   );
