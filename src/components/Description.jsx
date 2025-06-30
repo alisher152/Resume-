@@ -2,7 +2,9 @@ import React from "react";
 import { useMediaQuery } from "react-responsive";
 
 const Description = () => {
-  const isMobile = useMediaQuery({ maxWidth: 430 });
+  const isMobile = useMediaQuery({ maxWidth: 640 }); // sm
+  const isTablet = useMediaQuery({ minWidth: 641, maxWidth: 1024 }); // md
+  const isDesktop = useMediaQuery({ minWidth: 1025 }); // lg
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({
@@ -15,7 +17,7 @@ const Description = () => {
     <div id="work" className="flex flex-col">
       {/* Процесс работы */}
       <div className={`relative ${isMobile ? "px-4" : ""}`}>
-        {!isMobile && (
+        {isDesktop && (
           <img
             src="/assets/Group 8.svg"
             className="ml-60 transition-all duration-500 hover:scale-110 hover:rotate-6"
@@ -23,7 +25,7 @@ const Description = () => {
           />
         )}
 
-        {isMobile ? (
+        {isMobile || isTablet ? (
           <div className="flex flex-col gap-6 mt-6">
             <div className="bg-white bg-opacity-90 p-4 rounded-xl shadow-md border border-gray-100">
               <h1 className="text-xl font-bold text-[#2B3590] mb-1">
@@ -115,13 +117,17 @@ const Description = () => {
 
       {/* Кнопка "Работы" */}
       <div
-        className={`flex justify-center ${isMobile ? "mt-8 px-4" : "mt-40"}`}
+        className={`flex justify-center ${
+          isMobile ? "mt-8 px-4" : isTablet ? "mt-20" : "mt-40"
+        }`}
       >
         <button
           onClick={() => scrollToSection("jobs-gallery")}
           className={`flex items-center justify-between border-2 border-black rounded-full font-bold hover:bg-gray-100 transition-all duration-300 ${
             isMobile
               ? "px-5 py-2 text-base w-full max-w-[200px]"
+              : isTablet
+              ? "px-6 py-2.5 text-lg w-[250px]"
               : "px-8 py-3 text-xl w-[300px]"
           } shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600`}
         >
@@ -146,7 +152,7 @@ const Description = () => {
             <img
               src="/assets/Group 3.svg"
               className={`ml-2 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
-                isMobile ? "-mr-4 w-12" : "-mr-8 w-16"
+                isMobile ? "-mr-4 w-12" : isTablet ? "-mr-6 w-14" : "-mr-8 w-16"
               }`}
               alt="Иконка"
             />
@@ -155,51 +161,58 @@ const Description = () => {
       </div>
 
       {/* Галерея работ */}
-      <div id="jobs" className={`${isMobile ? "mt-6 px-4" : "mt-16"}`}>
+      <div
+        id="jobs"
+        className={`${isMobile ? "mt-6 px-4" : isTablet ? "mt-10" : "mt-16"}`}
+      >
         <div
           className={`bg-[#5F6BD4] rounded-4xl flex ${
-            isMobile ? "flex-col p-4 gap-4" : "h-80 flex-row"
+            isMobile
+              ? "flex-col p-4 gap-4"
+              : isTablet
+              ? "h-64 p-6 gap-6"
+              : "h-80 flex-row"
           } justify-center items-center transition-all duration-500 hover:bg-[#4a56b9] hover:shadow-2xl`}
         >
           <button
             onClick={() => scrollToSection("raundlab-section")}
             className={`transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-2xl active:scale-95 ${
-              isMobile ? "w-full" : "mx-4"
+              isMobile || isTablet ? "w-full" : "mx-4"
             } group`}
           >
             <img
               src="/assets/1.svg"
               alt="Raundlab"
               className={`transform transition duration-500 group-hover:rotate-3 group-hover:brightness-110 ${
-                isMobile ? "w-full h-auto" : ""
+                isMobile || isTablet ? "w-full h-auto" : ""
               }`}
             />
           </button>
           <button
             onClick={() => scrollToSection("berrytea-section")}
             className={`transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-2xl active:scale-95 ${
-              isMobile ? "w-full" : "mx-4"
+              isMobile || isTablet ? "w-full" : "mx-4"
             } group`}
           >
             <img
               src="/assets/Group 21.svg"
               alt="Berry Tea"
               className={`transform transition duration-500 group-hover:rotate-3 group-hover:brightness-110 ${
-                isMobile ? "w-full h-auto" : ""
+                isMobile || isTablet ? "w-full h-auto" : ""
               }`}
             />
           </button>
           <button
             onClick={() => scrollToSection("zan-stamps-section")}
             className={`transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-2xl active:scale-95 ${
-              isMobile ? "w-full" : "mx-4"
+              isMobile || isTablet ? "w-full" : "mx-4"
             } group`}
           >
             <img
               src="/assets/Project 3.svg"
               alt="Zan Stamps"
               className={`transform transition duration-500 group-hover:rotate-3 group-hover:brightness-110 ${
-                isMobile ? "w-full h-auto" : ""
+                isMobile || isTablet ? "w-full h-auto" : ""
               }`}
             />
           </button>
@@ -208,9 +221,21 @@ const Description = () => {
 
       {/* Секция Zan Stamps */}
       <div id="zan-stamps-section" className="py-20">
-        <div className="flex flex-col items-center gap-8 py-12 px-4 w-full mt-20">
-          <div className="flex flex-wrap justify-center gap-8 w-full max-w-4xl">
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-20 group overflow-hidden">
+        <div
+          className={`flex flex-col items-center gap-8 py-12 px-4 w-full ${
+            isMobile ? "mt-10" : isTablet ? "mt-15" : "mt-20"
+          }`}
+        >
+          <div
+            className={`flex ${
+              isMobile || isTablet ? "flex-col" : "flex-wrap"
+            } justify-center gap-8 w-full max-w-4xl`}
+          >
+            <div
+              className={`bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                isDesktop ? "-ml-20" : "mx-auto"
+              } group overflow-hidden`}
+            >
               <div className="flex justify-center">
                 <img
                   src="/assets/2.svg"
@@ -220,7 +245,7 @@ const Description = () => {
               </div>
             </div>
 
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
+            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 mx-auto group overflow-hidden">
               <div className="flex justify-center">
                 <img
                   src="/assets/2.svg"
@@ -232,7 +257,11 @@ const Description = () => {
           </div>
 
           <div className="flex justify-center w-full">
-            <div className="bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 -ml-15 group overflow-hidden">
+            <div
+              className={`bg-[#5F6BD4] rounded-4xl p-8 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
+                isDesktop ? "-ml-15" : "mx-auto"
+              } group overflow-hidden`}
+            >
               <div className="flex flex-col items-center">
                 <img
                   src="/assets/2.svg"
@@ -248,39 +277,43 @@ const Description = () => {
       {/* Секция Raundlab */}
       <div
         id="raundlab-section"
-        className={`${isMobile ? "py-10 px-4" : "py-20"}`}
+        className={`${
+          isMobile ? "py-10 pl-20 px-4" : isTablet ? "py-12 pl-40" : "py-20"
+        }`}
       >
         <button
           onClick={() => scrollToSection("raundlab-section")}
-          className={`flex items-center justify-between border-2 border-black rounded-full font-bold hover:bg-gray-100 transition-all duration-300 ${
+          className={`flex items-center justify-between border-2 border-black rounded-full font-bold hover:bg-gray-100 transition-all duration-300 md:ml-20 lg:ml-160 ${
             isMobile
               ? "px-5 py-2 text-base w-full max-w-[200px] mx-auto"
+              : isTablet
+              ? "px-6 py-2.5 text-lg w-[250px] mx-auto"
               : "px-8 py-3 text-xl w-[300px] ml-160"
           } ${
-            isMobile ? "mt-10" : "mt-40"
+            isMobile ? "mt-10" : isTablet ? "mt-15" : "mt-40"
           } shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600`}
         >
           <span className="flex-1 text-center">RAUND LAB</span>
           <div className="flex items-center">
             <img
               src="/assets/Group 3.svg"
-              className={`ml-2 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
-                isMobile ? "-mr-4 w-12" : "-mr-8 w-16"
+              className={`ml-8 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
+                isMobile ? "-mr-4 w-12" : isTablet ? "-mr-6 w-14" : "-mr-8 w-16"
               }`}
               alt="Иконка"
             />
           </div>
         </button>
 
-        <div className={`${isMobile ? "mt-6" : ""}`}>
+        <div className={`${isMobile ? "mt-6" : isTablet ? "mt-8" : ""}`}>
           <div
             className={`flex flex-col items-center gap-4 ${
-              isMobile ? "py-6" : "py-12"
+              isMobile ? "py-6" : isTablet ? "py-8" : "py-12"
             } px-4 w-full`}
           >
             <div
               className={`flex ${
-                isMobile ? "flex-col" : "flex-wrap"
+                isMobile || isTablet ? "flex-col" : "flex-wrap"
               } justify-center gap-4 w-full max-w-6xl`}
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
@@ -300,7 +333,7 @@ const Description = () => {
             </div>
             <div
               className={`flex ${
-                isMobile ? "flex-col" : "flex-wrap"
+                isMobile || isTablet ? "flex-col" : "flex-wrap"
               } justify-center gap-4 w-full max-w-6xl`}
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
@@ -325,39 +358,43 @@ const Description = () => {
       {/* Секция Berry Tea */}
       <div
         id="berrytea-section"
-        className={`${isMobile ? "py-10 px-4" : "py-20"}`}
+        className={`${
+          isMobile ? "py-10 pl-20 px-4" : isTablet ? "py-12 pl-40" : "py-20"
+        }`}
       >
         <button
           onClick={() => scrollToSection("berrytea-section")}
-          className={`flex items-center justify-between border-2 border-black rounded-full font-bold hover:bg-gray-100 transition-all duration-300 ${
+          className={`flex items-center justify-between border-2 border-black rounded-full font-bold hover:bg-gray-100 transition-all duration-300 md:ml-20 lg:ml-160 ${
             isMobile
               ? "px-5 py-2 text-base w-full max-w-[200px] mx-auto"
+              : isTablet
+              ? "px-6 py-2.5 text-lg w-[250px] mx-auto"
               : "px-8 py-3 text-xl w-[300px] ml-160"
           } ${
-            isMobile ? "mt-10" : "mt-40"
+            isMobile ? "mt-10" : isTablet ? "mt-15" : "mt-40"
           } shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:shadow-none active:translate-x-1 active:translate-y-1 hover:-translate-y-1 hover:border-blue-500 hover:text-blue-600`}
         >
           <span className="flex-1 text-center">BERRY TEA</span>
           <div className="flex items-center">
             <img
               src="/assets/Group 3.svg"
-              className={`ml-2 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
-                isMobile ? "-mr-4 w-12" : "-mr-8 w-16"
+              className={`ml-8 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 ${
+                isMobile ? "-mr-4 w-12" : isTablet ? "-mr-6 w-14" : "-mr-8 w-16"
               }`}
               alt="Иконка"
             />
           </div>
         </button>
 
-        <div className={`${isMobile ? "mt-6" : ""}`}>
+        <div className={`${isMobile ? "mt-6" : isTablet ? "mt-8" : ""}`}>
           <div
             className={`flex flex-col items-center gap-4 ${
-              isMobile ? "py-6" : "py-12"
+              isMobile ? "py-6" : isTablet ? "py-8" : "py-12"
             } px-4 w-full`}
           >
             <div
               className={`flex ${
-                isMobile ? "flex-col" : "flex-wrap"
+                isMobile || isTablet ? "flex-col" : "flex-wrap"
               } justify-center gap-4 w-full max-w-6xl`}
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
@@ -377,7 +414,7 @@ const Description = () => {
             </div>
             <div
               className={`flex ${
-                isMobile ? "flex-col" : "flex-wrap"
+                isMobile || isTablet ? "flex-col" : "flex-wrap"
               } justify-center gap-4 w-full max-w-6xl`}
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
@@ -397,7 +434,7 @@ const Description = () => {
             </div>
             <div
               className={`flex ${
-                isMobile ? "flex-col" : "flex-wrap"
+                isMobile || isTablet ? "flex-col" : "flex-wrap"
               } justify-center gap-4 w-full max-w-6xl`}
             >
               <div className="bg-[#5F6BD4] rounded-4xl p-4 w-full max-w-md shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group overflow-hidden">
